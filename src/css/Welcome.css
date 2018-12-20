@@ -8,6 +8,7 @@
 }
 
 .welcome h1 {
+    /* font-family: 'Julius Sans One', sans-serif; */
     font-family: 'Major Mono Display', monospace;
     font-size: 60px;
 }

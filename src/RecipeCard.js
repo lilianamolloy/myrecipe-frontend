@@ -7,15 +7,22 @@ const RecipeCard = (props) => {
         const recipe = props.recipe
         return (
             <div className="page">
-                <h1>{recipe.title}</h1>
-                <img  src={recipe.image} alt=" food"></img>
-                {
-                    recipe.ingredients.map((item, i) => {
-                        return <li key={i}>{item}</li>
-                    })
-                }
-                <p>{recipe.recipe}</p>
-                <Link to="/recipes">Back</Link>
+                <div>
+                    <img  src={recipe.image} alt=" food"></img>
+                </div>
+                <div className="content">
+                    <h1>{recipe.title}</h1>
+                    {
+                        recipe.ingredients.map((item, i) => {
+                            return <li key={i}>{item}</li>
+                        })
+                    }
+                    <p>{recipe.recipe}</p>
+                    <div className="links">
+                        <Link to="/recipes">Back</Link>
+                        <Link className="link" to={`/recipes/${props.id}/edit`}>Edit</Link>
+                    </div>
+                </div>
             </div>
         )
     }

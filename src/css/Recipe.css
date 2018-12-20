@@ -31,7 +31,9 @@
 
 .card .h1 {
     width: 300px;
-    font-family: 'Major Mono Display', monospace;
+    /* font-family: 'Major Mono Display', monospace; */
+    font-family: 'Julius Sans One', sans-serif;
+    text-transform: capitalize;
     margin-bottom: 20px;
     text-decoration: none;
     font-size: 30px; 
@@ -55,4 +57,36 @@
     justify-content: center;
     align-items: center;
     color: rgb(63, 63, 63);
+}
+
+/* Page */
+
+.page {
+    display: flex;
+    margin: 50px;
+    margin-bottom: 0;
+    padding-bottom: 50px;
+    min-height: calc(100vh - 200px)
+}
+
+.page img {
+    width: 50vw;
+}
+
+.page .content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 40px;
+}
+
+.page .links {
+    width: 100px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.page h1{
+    font-family: 'Julius Sans One', sans-serif;
+    color: lightsalmon;
 }
