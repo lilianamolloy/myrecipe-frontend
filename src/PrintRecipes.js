@@ -1,5 +1,6 @@
 import React from 'react';
 import RecipeCard from './RecipeCard';
+import './css/Recipe.css';
 
 const PrintRecipes = (props) => {
     const recipes = props.recipes

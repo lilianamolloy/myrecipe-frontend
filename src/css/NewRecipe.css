@@ -1,0 +1,75 @@
+.container1 {
+    width: 100vw;
+    min-height: calc(100vh - 100px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container1 form {
+    margin: 20px;
+    background: lightsalmon;
+    width: 500px;
+    min-height: 300px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.container1 form h1 {
+    color: white;
+    font-family: 'Major Mono Display', monospace;
+}
+
+.container1 form label {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    font-family: 'Quicksand', sans-serif;
+    color: rgb(63, 63, 63);
+}
+
+.container1 form input, .container1 form textarea {
+    width: 350px;
+    height: 20px;
+    border: none;
+    border-radius: 5px;
+    font-family: 'Quicksand', sans-serif;
+    color: rgb(63, 63, 63);
+}
+
+.container1 form .ingredient {
+    width: 240px
+}
+
+.container1 form .desc {
+    height: 80px;
+}
+
+.container1 form button {
+    height: 40px;
+    width: 150px;
+    font-family: 'Quicksand', sans-serif;
+    color: rgb(63, 63, 63);
+    border: none;
+    border-radius: 5px;
+}
+
+.container1 form label button, .container1 form li button {
+    width: 50px;
+    height: 20px;
+    /* margin-left: 5px; */
+}
+
+.container1 form li {
+    font-family: 'Quicksand', sans-serif;
+    width: 350px;
+    color: rgb(63, 63, 63);
+    display: flex;
+    justify-content: space-between;
+}
+
+.container1 form li button {
+    margin: 3px;
+}

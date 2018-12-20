@@ -1,11 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import './css/Recipe.css';
 
 const RecipeCard = (props) => {
     if (props.recipe._id){
         const recipe = props.recipe
         return (
-            <div>
+            <div className="page">
                 <h1>{recipe.title}</h1>
                 <img  src={recipe.image} alt=" food"></img>
                 {
@@ -21,10 +22,13 @@ const RecipeCard = (props) => {
 
     const link = `/recipes/${props.id}`
     return (
-        <div>
-            <Link to={link}>{props.title}</Link>
+        <div className="card">
+            <Link className="h1" to={link}>{props.title}</Link>
             <img  src={props.image} alt="yummy food"></img>
-            <Link to={`/recipes/${props.id}/delete`}>Delete</Link>
+            <div className="links">
+                <Link className="link" to={`/recipes/${props.id}/delete`}>Delete</Link>
+                <Link className="link" to={`/recipes/${props.id}/edit`}>Edit</Link>
+            </div>
         </div>
     )
 }

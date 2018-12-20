@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import RecipeCard from './RecipeCard';
+import Edit from './Edit';
 
 class Recipe extends Component {
     state = {
@@ -19,9 +20,11 @@ class Recipe extends Component {
         const { recipe } = this.state
 
         if(recipe) {
-            return (
-                <RecipeCard recipe={recipe}/>
-            )
+            console.log(this.props)
+            if(this.props.match.params.edit){
+                return <Edit recipe={recipe} id={this.props.match.params.id} history={this.props.history}/>
+            }
+            return <RecipeCard recipe={recipe}/>
         } else {
             return <h1>Loading ...</h1>
         }

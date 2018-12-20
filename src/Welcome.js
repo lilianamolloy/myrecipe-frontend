@@ -1,8 +1,12 @@
 import React from 'react';
+import './css/Welcome.css';
 
 const Welcome = () => {
     return (
-        <h1>Welcome to My Recipe Book</h1>
+        <div className="welcome">
+            <h1>Welcome to My Recipe Book</h1>
+            <p>A collection of my favourite recipes!</p>
+        </div>
     );
 }
 

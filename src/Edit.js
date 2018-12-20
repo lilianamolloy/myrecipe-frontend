@@ -1,14 +1,13 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import './css/NewRecipe.css';
 
-class NewRecipe extends Component {
+class Edit extends Component {
     state = {
-        title: '',
+        title: this.props.recipe.title,
         ingredient: '',
-        ingredients: [],
-        recipe: '',
-        image: ''
+        ingredients: this.props.recipe.ingredients,
+        recipe: this.props.recipe.recipe,
+        image: this.props.recipe.image
     }
 
     change = (e) => {
@@ -17,9 +16,9 @@ class NewRecipe extends Component {
         })
     }
 
-    removeIngredient = (e, i) => {
+    changeArray = (e, i) => {
         const ingredients = this.state.ingredients
-        ingredients.splice(i, 1)
+        ingredients[i] = e.target.value
         this.setState({ingredients})
     }
 
@@ -37,24 +36,24 @@ class NewRecipe extends Component {
 
         const { title, image, ingredients, recipe } = this.state;
     
-        const url = 'http://localhost:5000/recipes'
+        const url = `http://localhost:5000/recipes/${this.props.id}`
         const obj = {
           title,
           image,
           ingredients,
           recipe
         }
-        axios.post(url, obj)
+        axios.put(url, obj)
           .then(resp => {
             this.props.history.push(`/recipes/${resp.data._id}`);
+            // console.log(this.props)
           });
       }
 
     render() {
         return(
-            <div className="container1">
+            <div className="container">
                 <form>
-                    <h1>{this.state.title}</h1>
                     <label>
                         Title:     
                         <input type='text' name="title" value={this.state.title} onChange={ e => this.change(e)}/>
@@ -67,29 +66,28 @@ class NewRecipe extends Component {
                     <br/>
                     <label>
                         Ingredients:
-                        <input type='text' className="ingredient" name="ingredient" value={this.state.ingredient} onChange={ e => this.change(e)}/>
-                        <button onClick={this.ingredientChange}>Add</button>
-                    </label>
-                        <ul>
                             {
                                 this.state.ingredients.map((ingredient, i) => {
                                     return (
-                                    <li key={i}>{ingredient} <button onClick={e => this.removeIngredient(e, i)}>remove</button></li>
-                                )
+                                    <input key={i} type='text' name="ingredient" value={ingredient} onChange={e => this.changeArray(e, i)}/>
+                                    )
                                 })
                             }
-                        </ul>
+                        <br></br>
+                        <input className="ingredient" type='text' name="ingredient" value={this.state.ingredient} onChange={ e => this.change(e)}/>
+                        <button onClick={this.ingredientChange}>Add</button>
+                    </label>
                     <br/>
                     <label>
                         Recipe:
-                        <textarea className="desc" type='text' name="recipe" value={this.state.recipe} onChange={ e => this.change(e)}/>
+                        <input className="desc" type='text-field' name="recipe" value={this.state.recipe} onChange={ e => this.change(e)}/>
                     </label>
                     <br/>
-                    <button onClick={e => this.onSubmit(e)}>Submit</button>
+                    <button onClick={e => this.onSubmit(e)}>Update</button>
                 </form>
             </div>
         )
     }
 }
 
-export default NewRecipe;
+export default Edit;

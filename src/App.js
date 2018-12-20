@@ -13,13 +13,14 @@ class App extends Component {
   render() {
     return (
       <BrowserRouter>
-        <div>
+        <div className="app">
           <Navbar />
           <Switch>
              <Route path="/" component={Welcome} exact/>
              <Route path="/recipes" component={Recipes} exact/>
              <Route path="/recipes/new" component={NewRecipe} exact/>
              <Route path="/recipes/:id/delete" component={Delete} exact/>
+             <Route path="/recipes/:id/:edit" component={Recipe} exact/>
              <Route path="/recipes/:id" component={Recipe} exact/>
              <Route component={Error}/>
           </Switch>
