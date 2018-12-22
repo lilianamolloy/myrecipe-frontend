@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import './css/Edit.css';
 
 class Edit extends Component {
     state = {
@@ -52,8 +53,9 @@ class Edit extends Component {
 
     render() {
         return(
-            <div className="container">
+            <div className="container2">
                 <form>
+                    <h1>{this.state.title}</h1>
                     <label>
                         Title:     
                         <input type='text' name="title" value={this.state.title} onChange={ e => this.change(e)}/>
@@ -64,8 +66,9 @@ class Edit extends Component {
                         <input type='text' name="image" value={this.state.image} onChange={ e => this.change(e)}/>
                     </label>
                     <br/>
-                    <label>
+                    <label className="ingredients">
                         Ingredients:
+                        <div className="ingredient">
                             {
                                 this.state.ingredients.map((ingredient, i) => {
                                     return (
@@ -73,14 +76,17 @@ class Edit extends Component {
                                     )
                                 })
                             }
+                        </div>
                         <br></br>
+                        <div>
                         <input className="ingredient" type='text' name="ingredient" value={this.state.ingredient} onChange={ e => this.change(e)}/>
                         <button onClick={this.ingredientChange}>Add</button>
+                        </div>
                     </label>
                     <br/>
                     <label>
                         Recipe:
-                        <input className="desc" type='text-field' name="recipe" value={this.state.recipe} onChange={ e => this.change(e)}/>
+                        <textarea className="desc" type='text-field' name="recipe" value={this.state.recipe} onChange={ e => this.change(e)}/>
                     </label>
                     <br/>
                     <button onClick={e => this.onSubmit(e)}>Update</button>
